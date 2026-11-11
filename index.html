@@ -16,6 +16,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/loops/05_white_factory.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="assets/fonts/bitter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/site.css">
@@ -58,7 +59,7 @@
 <header class="hero" id="top" data-theme="wall" data-name="Film">
   <div class="hero-pin">
     <div class="hero-head">
-      <img class="hero-script" src="assets/title/title_script.png" width="984" height="125" alt="Official title lettering in Mongolian script">
+      <img class="hero-script" src="assets/title/title_script.png" fetchpriority="high" width="984" height="125" alt="Official title lettering in Mongolian script">
       <h1 class="hero-title">The Muralist</h1>
       <p class="hero-mn" lang="mn">Ханын зураач</p>
       <p class="hero-meta">Mongolia, 2025, 116 min</p>
@@ -99,7 +100,8 @@
 <section class="trailer" id="trailer" data-theme="night" data-name="Trailer">
   <h2 class="vh">Trailer</h2>
   <div class="trailer-frame">
-    <iframe src="https://player.vimeo.com/video/1225874601" title="The Muralist — trailer" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <iframe data-src="https://player.vimeo.com/video/1225874601" title="The Muralist — trailer" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <noscript><iframe src="https://player.vimeo.com/video/1225874601" title="The Muralist — trailer" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></noscript>
   </div>
 </section>
 
@@ -159,10 +161,10 @@
   </div>
 
   <div class="clips" aria-label="Clips from the trailer">
-    <div class="clip c-1"><video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/loops/01_factory_mural.jpg" aria-label="The painted factory wall, staircase and balloon"><source src="assets/loops/01_factory_mural.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
-    <div class="clip c-2"><video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/loops/03_bw_portrait.jpg" aria-label="Black-and-white close-up of a figure"><source src="assets/loops/03_bw_portrait.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
-    <div class="clip c-3"><video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/loops/04_paint_bowl.jpg" aria-label="Black paint dripping into a white enamel bowl"><source src="assets/loops/04_paint_bowl.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
-    <div class="clip c-4"><video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/loops/02_doorway.jpg" aria-label="Two silhouettes in a factory doorway"><source src="assets/loops/02_doorway.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
+    <div class="clip c-1"><video class="loop" autoplay muted loop playsinline preload="none" poster="assets/loops/01_factory_mural.jpg" aria-label="The painted factory wall, staircase and balloon"><source data-src="assets/loops/01_factory_mural.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
+    <div class="clip c-2"><video class="loop" autoplay muted loop playsinline preload="none" poster="assets/loops/03_bw_portrait.jpg" aria-label="Black-and-white close-up of a figure"><source data-src="assets/loops/03_bw_portrait.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
+    <div class="clip c-3"><video class="loop" autoplay muted loop playsinline preload="none" poster="assets/loops/04_paint_bowl.jpg" aria-label="Black paint dripping into a white enamel bowl"><source data-src="assets/loops/04_paint_bowl.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
+    <div class="clip c-4"><video class="loop" autoplay muted loop playsinline preload="none" poster="assets/loops/02_doorway.jpg" aria-label="Two silhouettes in a factory doorway"><source data-src="assets/loops/02_doorway.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video></div>
   </div>
 </section>
 
@@ -199,17 +201,6 @@
       <picture><source srcset="assets/people/lead_executive_producer_Khishigjargal_Dashdorj.webp" type="image/webp"><img loading="lazy" src="assets/people/lead_executive_producer_Khishigjargal_Dashdorj.jpg" width="600" height="600" alt="Khishigjargal Dashdorj, portrait"></picture>
     </figure>
   </article>
-
-  <article class="producer">
-    <figure class="producer-photo" data-reveal>
-      <picture><source srcset="assets/people/producer_Javkhlan_David_Sonomdorj.webp" type="image/webp"><img loading="lazy" src="assets/people/producer_Javkhlan_David_Sonomdorj.jpg" width="1280" height="914" alt="Javkhlan (David) Sonomdorj, studio portrait, Tallinn 2025"></picture>
-      <figcaption>Photo © Mia Tohver</figcaption>
-    </figure>
-    <div class="producer-text">
-      <h3 class="name name-2">Javkhlan (David) Sonomdorj</h3>
-      <p class="role">Producer — international distribution and festivals</p>
-    </div>
-  </article>
 </section>
 
 <!-- PRESS: Variety only -->
@@ -232,7 +223,7 @@
 <!-- END TITLE, then credits roll -->
 <section class="end" id="credits" data-theme="night" data-name="Credits">
   <div class="end-title">
-    <video class="loop" autoplay muted loop playsinline preload="metadata" poster="assets/loops/06_end_title.jpg" aria-label="End title of The Muralist at sunset"><source src="assets/loops/06_end_title.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video>
+    <video class="loop" autoplay muted loop playsinline preload="none" poster="assets/loops/06_end_title.jpg" aria-label="End title of The Muralist at sunset"><source data-src="assets/loops/06_end_title.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)"></video>
   </div>
 
   <h2 class="vh">Credits and tech sheet</h2>

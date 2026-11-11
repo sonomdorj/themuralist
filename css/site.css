@@ -179,7 +179,7 @@ html.js:not(.rm) .synopsis-text p.on { opacity: 1; }
 .c-4 { grid-column: 6 / span 7; aspect-ratio: 1.95 / 1; margin-top: 5vh; }
 
 /* ---------- People ---------- */
-.people { padding: 0 0 10vh; }
+.people { padding: 0; }
 .director { display: grid; grid-template-columns: minmax(0, 42vw) minmax(0, 1fr); gap: 6vw; align-items: start; padding-right: var(--g); }
 .director-photo { position: sticky; top: 0; height: 100vh; margin: 0; background: #111; }
 .director-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
@@ -195,14 +195,10 @@ html.js:not(.rm) .synopsis-text p.on { opacity: 1; }
 .statement p { margin: 0 0 1.2em; font-size: clamp(18px, 1.5vw, 23px); line-height: 1.55; text-wrap: pretty; }
 .statement .sign { margin-top: 2em; font-style: italic; }
 
-.exec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, min(22vw, 300px)); gap: 6vw; align-items: end; padding: 22vh var(--g) 0 calc(var(--g) + 12vw); }
-.exec-photo { margin: 0 0 -7vh; }
+.exec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, min(30vw, 420px)); gap: 7vw; align-items: center; padding: 24vh var(--g) 22vh calc(var(--g) + 8vw); }
+.exec-text { max-width: 36em; }
+.exec-photo { margin: 0; }
 .exec-photo img { width: 100%; height: auto; }
-.producer { display: grid; grid-template-columns: minmax(0, 46vw) minmax(0, 1fr); gap: 5vw; align-items: end; padding: 22vh var(--g) 8vh 0; }
-.producer-photo { margin: 0; }
-.producer-photo img { width: 100%; height: auto; }
-.producer-photo figcaption { margin-top: 10px; padding-left: var(--g); font-family: var(--cond); font-weight: 500; font-size: 17px; letter-spacing: .08em; text-transform: uppercase; opacity: .72; }
-.producer-text { padding-bottom: 5vh; }
 
 /* ---------- Press ---------- */
 .press { padding: 26vh var(--g) 28vh; }
@@ -294,11 +290,8 @@ html.js:not(.rm) .book[data-reveal].in { transform: rotate(-4deg); }
   .director-photo { position: relative; height: auto; aspect-ratio: 4 / 5; }
   .director-text { padding: 9vh var(--g) 4vh; }
   .statement { margin-top: 9vh; }
-  .exec { grid-template-columns: minmax(0, 1fr); gap: 6vh; padding: 14vh var(--g) 0; }
-  .exec-photo { width: 58%; max-width: 300px; margin: 0 0 0 auto; }
-  .producer { grid-template-columns: minmax(0, 1fr); gap: 4vh; padding: 14vh 0 4vh; }
-  .producer-photo { width: 92%; }
-  .producer-text { padding: 0 var(--g); }
+  .exec { grid-template-columns: minmax(0, 1fr); gap: 6vh; padding: 14vh var(--g) 14vh; }
+  .exec-photo { order: -1; width: 64%; max-width: 320px; }
 
   .press { padding: 18vh var(--g) 18vh; }
   .press-second { margin-top: 14vh !important; }

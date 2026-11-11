@@ -91,9 +91,17 @@
     $$('main [data-theme]').forEach(function (el) { themeIO.observe(el); });
   }
 
-  /* Loops: autoplay muted; paused when out of view. With reduced motion the poster still stays. */
+  /* Loops: the hero loads at once; the others get their source only when near view.
+     Each plays in view and pauses out of view. With reduced motion the poster stills stay. */
   var heroVideo = $('#heroVideo');
-  function play(v) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  function arm(v) {
+    var s = $('source[data-src]', v);
+    if (!s) return;
+    s.src = s.getAttribute('data-src');
+    s.removeAttribute('data-src');
+    v.load();
+  }
+  function play(v) { arm(v); v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
   if (RM) $$('video.loop').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
   if (!RM && hasIO) {
     var loopIO = new IntersectionObserver(function (es) {
@@ -104,6 +112,20 @@
       });
     }, { threshold: [0, 0.2, 0.6] });
     $$('video.loop').forEach(function (v) { if (v !== heroVideo) loopIO.observe(v); });
+  } else if (!RM) {
+    $$('video.loop').forEach(play);
+  }
+
+  /* Trailer: load the Vimeo player only when its section is near the viewport */
+  var vimeo = $('#trailer iframe[data-src]');
+  function armVimeo() { if (vimeo && vimeo.getAttribute('data-src')) { vimeo.src = vimeo.getAttribute('data-src'); vimeo.removeAttribute('data-src'); } }
+  if (vimeo) {
+    if (hasIO) {
+      var vIO = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { armVimeo(); vIO.disconnect(); }
+      }, { rootMargin: '800px 0px' });
+      vIO.observe($('#trailer'));
+    } else armVimeo();
   }
 
   /* Scroll-driven passages */
