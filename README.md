@@ -1,4 +1,4 @@
-# The Muralist — themuralist.art
+# The Muralist — themuralistfilm.com
 
 Static site. No build step. Deploy the folder to Vercel as is ("Other" framework preset, no build command, output directory = root).
 
